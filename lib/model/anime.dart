@@ -6,11 +6,12 @@ class Anime {
   String banner;
   List<String> images;
 
-  Anime(
-      {required this.title,
-      required this.synopsis,
-      required this.banner,
-      required this.images});
+  Anime({
+    required this.title,
+    required this.synopsis,
+    required this.banner,
+    required this.images,
+  });
 }
 
 var animes = [

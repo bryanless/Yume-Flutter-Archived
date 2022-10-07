@@ -25,6 +25,12 @@ class YumeApp extends StatelessWidget {
             title: 'Detail',
             anime: animes.first,
           ),
+          // initialRoute: '/',
+          routes: {
+            DetailPage.routeName: (context) =>
+                DetailPage(title: 'Detail', anime: animes.first),
+            AddWatchListPage.routeName: ((context) => const AddWatchListPage())
+          },
         );
       },
     );
