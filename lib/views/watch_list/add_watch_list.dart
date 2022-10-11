@@ -134,10 +134,10 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                           },
                           confirmLabel: 'Save',
                           onConfirm: () {
-                            // ScaffoldMessenger.of(context).showSnackBar(
-                            //   const SnackBar(
-                            //       content: Text('Added to watch list')),
-                            // );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('Added to watch list')),
+                            );
                             Navigator.pop(context, 'Save');
                           },
                         ),
