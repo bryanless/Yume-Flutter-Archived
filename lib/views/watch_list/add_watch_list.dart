@@ -15,7 +15,7 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
   final RegExp nonStartingZero = RegExp(r'^0+(?=.)');
 
   final _formKey = GlobalKey<FormState>();
-  WatchList _watchList = WatchList();
+  final WatchList _watchList = WatchList();
 
   void _onStatusChanged(String? status) {
     setState(() {

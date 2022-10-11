@@ -80,9 +80,8 @@ class _DetailPageState extends State<DetailPage> {
                 Flexible(
                   flex: 1,
                   child: ListView.separated(
-                    padding: const EdgeInsets.only(
-                      left: YumeSpace.medium,
-                      right: YumeSpace.medium,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: YumeSpace.medium,
                     ),
                     scrollDirection: Axis.horizontal,
                     itemCount: widget.anime.images.length,
@@ -100,9 +99,8 @@ class _DetailPageState extends State<DetailPage> {
               Flexible(
                 flex: 4,
                 child: Container(
-                  padding: const EdgeInsets.only(
-                    left: YumeSpace.medium,
-                    right: YumeSpace.medium,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: YumeSpace.medium,
                   ),
                   child: Column(
                     children: [
