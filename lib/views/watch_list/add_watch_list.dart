@@ -67,6 +67,7 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                         }
                         return null;
                       },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                     const YumeVSpacer(
                       space: YumeSpace.medium,
@@ -88,6 +89,7 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                         FilteringTextInputFormatter.digitsOnly,
                         FilteringTextInputFormatter.deny(nonStartingZero),
                       ],
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                     const YumeVSpacer(
                       space: YumeSpace.medium,
@@ -110,6 +112,7 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                         }
                         return null;
                       },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                   ],
                 ),
@@ -131,15 +134,16 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                           },
                           confirmLabel: 'Save',
                           onConfirm: () {
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            //   const SnackBar(
+                            //       content: Text('Added to watch list')),
+                            // );
                             Navigator.pop(context, 'Save');
                           },
                         ),
                       ).then((value) {
                         if (value == 'Save') Navigator.pop(context);
                       });
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //   const SnackBar(content: Text('Processing Data')),
-                      // );
                     }
                   },
                   label: 'Save'),

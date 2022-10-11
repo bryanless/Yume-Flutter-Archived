@@ -12,6 +12,7 @@ class YumeOutlinedTextField extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.inputFormatters,
+    this.autovalidateMode,
   });
 
   final String? initialValue;
@@ -22,6 +23,7 @@ class YumeOutlinedTextField extends StatelessWidget {
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatters;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class YumeOutlinedTextField extends StatelessWidget {
       onSaved: onSaved,
       validator: validator,
       inputFormatters: inputFormatters,
+      autovalidateMode: autovalidateMode,
     );
   }
 }
@@ -51,6 +54,7 @@ class YumeDropdownTextField extends StatelessWidget {
     this.value,
     this.onSaved,
     this.validator,
+    this.autovalidateMode,
   });
 
   final String? labelText;
@@ -60,6 +64,7 @@ class YumeDropdownTextField extends StatelessWidget {
   final String? value;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +85,7 @@ class YumeDropdownTextField extends StatelessWidget {
       ),
       onSaved: onSaved,
       validator: validator,
+      autovalidateMode: autovalidateMode,
     );
   }
 }
