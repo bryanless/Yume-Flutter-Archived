@@ -3,6 +3,8 @@ part of 'pages.dart';
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key, required this.title, required this.anime});
 
+  static const routeName = '/detail';
+
   final String title;
   final Anime anime;
 
@@ -65,8 +67,8 @@ class _DetailPageState extends State<DetailPage> {
                               _onFavorite();
                             },
                             icon: _favorite
-                                ? const Icon(Icons.favorite_rounded)
-                                : const Icon(Icons.favorite_border_rounded),
+                                ? const Icon(YumeIcons.favorite)
+                                : const Icon(YumeIcons.favoriteOutlined),
                             color: Colors.red,
                           ),
                         ),
@@ -78,9 +80,8 @@ class _DetailPageState extends State<DetailPage> {
                 Flexible(
                   flex: 1,
                   child: ListView.separated(
-                    padding: const EdgeInsets.only(
-                      left: YumeSpace.medium,
-                      right: YumeSpace.medium,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: YumeSpace.medium,
                     ),
                     scrollDirection: Axis.horizontal,
                     itemCount: widget.anime.images.length,
@@ -98,9 +99,8 @@ class _DetailPageState extends State<DetailPage> {
               Flexible(
                 flex: 4,
                 child: Container(
-                  padding: const EdgeInsets.only(
-                    left: YumeSpace.medium,
-                    right: YumeSpace.medium,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: YumeSpace.medium,
                   ),
                   child: Column(
                     children: [
@@ -126,6 +126,12 @@ class _DetailPageState extends State<DetailPage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, AddWatchListPage.routeName);
+        },
+        child: const Icon(YumeIcons.playlistAdd),
       ),
     );
   }
