@@ -57,6 +57,7 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                   children: [
                     YumeOutlinedTextField(
                       labelText: 'Email',
+                      prefixIcon: YumeIcons.email,
                       keyboardType: TextInputType.emailAddress,
                       onSaved: (email) {
                         _onEmailSaved(email);
@@ -77,13 +78,13 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                     ),
                     YumeDropdownTextField(
                       labelText: 'Status',
-                      // hint: WatchStatus.planToWatch.value,
                       options: WatchStatus.values
                           .map((status) => status.value.toString())
                           .toList(),
                       onChanged: (status) {
                         _onStatusChanged(status);
                       },
+                      prefixIcon: YumeIcons.bookmark,
                       onSaved: (status) {
                         _onStatusChanged(status);
                       },
@@ -99,8 +100,8 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                       space: YumeSpace.medium,
                     ),
                     YumeOutlinedTextField(
-                      labelText: 'Episodes Watched',
-                      // hintText: '12',
+                      labelText: 'Episodes watched',
+                      prefixIcon: YumeIcons.checklist,
                       keyboardType: TextInputType.number,
                       onSaved: (episode) {
                         _onEpisodeSaved(episode);
@@ -122,13 +123,13 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                     ),
                     YumeDropdownTextField(
                       labelText: 'Rating',
-                      // hint: Rating.unknown.value,
                       options: Rating.values
                           .map((rating) => rating.value.toString())
                           .toList(),
                       onChanged: (rating) {
                         _onRatingChanged(rating);
                       },
+                      prefixIcon: YumeIcons.starRate,
                       onSaved: (rating) {
                         _onRatingChanged(rating);
                       },

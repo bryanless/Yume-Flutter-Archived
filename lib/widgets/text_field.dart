@@ -7,6 +7,7 @@ class YumeOutlinedTextField extends StatelessWidget {
     this.initialValue,
     this.labelText,
     this.hintText,
+    this.prefixIcon,
     this.keyboardType,
     this.autofocus = false,
     this.onSaved,
@@ -18,6 +19,7 @@ class YumeOutlinedTextField extends StatelessWidget {
   final String? initialValue;
   final String? labelText;
   final String? hintText;
+  final IconData? prefixIcon;
   final TextInputType? keyboardType;
   final bool autofocus;
   final Function(String?)? onSaved;
@@ -33,6 +35,7 @@ class YumeOutlinedTextField extends StatelessWidget {
         labelText: labelText,
         border: const OutlineInputBorder(),
         hintText: hintText,
+        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
       ),
       keyboardType: keyboardType,
       autofocus: autofocus,
@@ -47,21 +50,23 @@ class YumeOutlinedTextField extends StatelessWidget {
 class YumeDropdownTextField extends StatelessWidget {
   const YumeDropdownTextField({
     super.key,
-    this.labelText,
-    this.hint,
     required this.options,
-    required this.onChanged,
     this.value,
+    this.hint,
+    required this.onChanged,
+    this.labelText,
+    this.prefixIcon,
     this.onSaved,
     this.validator,
     this.autovalidateMode,
   });
 
-  final String? labelText;
-  final String? hint;
   final List<String> options;
-  final void Function(String?)? onChanged;
   final String? value;
+  final String? hint;
+  final void Function(String?)? onChanged;
+  final String? labelText;
+  final IconData? prefixIcon;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
@@ -82,6 +87,7 @@ class YumeDropdownTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         border: const OutlineInputBorder(),
+        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
       ),
       onSaved: onSaved,
       validator: validator,
