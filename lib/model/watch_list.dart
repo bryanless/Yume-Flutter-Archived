@@ -1,9 +1,11 @@
 class WatchList {
+  String? email;
   String? status;
   String? episode;
   String? rating;
 
   WatchList({
+    this.email,
     this.status,
     this.episode,
     this.rating,

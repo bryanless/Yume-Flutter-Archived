@@ -17,6 +17,12 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
   final _formKey = GlobalKey<FormState>();
   final WatchList _watchList = WatchList();
 
+  void _onEmailSaved(String? email) {
+    setState(() {
+      _watchList.email = email;
+    });
+  }
+
   void _onStatusChanged(String? status) {
     setState(() {
       _watchList.status = status;
@@ -49,6 +55,26 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                 key: _formKey,
                 child: Column(
                   children: [
+                    YumeOutlinedTextField(
+                      labelText: 'Email',
+                      keyboardType: TextInputType.emailAddress,
+                      onSaved: (email) {
+                        _onEmailSaved(email);
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter an email address';
+                        } else if (!EmailValidator.validate(value.toString())) {
+                          return 'Please enter a valid email address';
+                        } else {
+                          return null;
+                        }
+                      },
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                    ),
+                    const YumeVSpacer(
+                      space: YumeSpace.medium,
+                    ),
                     YumeDropdownTextField(
                       labelText: 'Status',
                       // hint: WatchStatus.planToWatch.value,
@@ -127,7 +153,7 @@ class _AddWatchListPageState extends State<AddWatchListPage> {
                         builder: (BuildContext context) => YumeDialog(
                           title: 'Save to watch list?',
                           content:
-                              'Make sure you have inputted the right data before saving\n\nStatus: ${_watchList.status}\nEpisodes watched: ${_watchList.episode}\nRating: ${_watchList.rating}',
+                              'Make sure you have inputted the right data before saving\n\nEmail: ${_watchList.email}\nStatus: ${_watchList.status}\nEpisodes watched: ${_watchList.episode}\nRating: ${_watchList.rating}',
                           dismissLabel: 'Cancel',
                           onDismiss: () {
                             Navigator.pop(context, 'Cancel');
